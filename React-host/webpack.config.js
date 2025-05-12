@@ -10,16 +10,12 @@ const ESLintPlugin = require('eslint-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const webpack = require('webpack')
-const { McfeHostConfigLoader } = require('mcfe-provider')
-
-const pluginProvider = new McfeHostConfigLoader()
+const { MCFEHostPlugin } = require('mcfe-provider')
 
 // Cái dòng này giúp Editor gợi ý được các giá trị cho dòng code config ngay phía dưới nó
 // (giống như đang dùng Typescript vậy đó 😉)
 /** @type {(env: any, arg: {mode: string}) => import('webpack').Configuration} **/
 module.exports = async (env, argv) => {
-  const { remotes } = await pluginProvider.getRemoteInfo()
-  console.log('remotes', remotes)
   const isProduction = argv.mode === 'production'
   const isAnalyze = Boolean(env?.analyze)
   /** @type {import('webpack').Configuration} **/
@@ -103,9 +99,9 @@ module.exports = async (env, argv) => {
     },
     devtool: isProduction ? false : 'source-map',
     plugins: [
-      new webpack.DefinePlugin({
-        'process.env.MCFE_REPO_LIST': JSON.stringify(remotes)
-      }),
+      // new webpack.DefinePlugin({
+      //   'process.env.MCFE_REPO_LIST': JSON.stringify(remotes)
+      // }),
       // Đưa css ra thành một file .css riêng biệt thay vì bỏ vào file .js
       new MiniCssExtractPlugin({
         filename: isProduction ? 'static/css/[name].[contenthash:6].css' : '[name].css'
@@ -124,7 +120,7 @@ module.exports = async (env, argv) => {
           }
         ]
       }),
-
+      await new MCFEHostPlugin(true).build(),
       // Plugin hỗ trợ thêm thẻ style và script vào index.html
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'public', 'index.html'),

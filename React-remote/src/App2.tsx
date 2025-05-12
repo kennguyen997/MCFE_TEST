@@ -1,10 +1,8 @@
 import React, { FC, useState } from 'react'
 import './assets/styles/app.css'
 import './assets/styles/app.scss'
-import { MFApp1, MFApp2 } from './js-modules/mfe-component'
-// import { initMcfe } from './helper'
-// initMcfe()
-const App: FC = () => {
+import { CreateInitialAutoReact } from 'mcfe-react-lib'
+export const App: FC = () => {
   const [fullname] = useState('DinoCollab')
   console.log(fullname)
   return (
@@ -18,14 +16,13 @@ const App: FC = () => {
         flexDirection: 'column'
       }}
     >
-      {/* <img src={reactlogo} alt='React Logo' width={100} height={100} />
+      <img src={'./assets/images/react.svg'} alt='React Logo' width={100} height={100} />
       <h1>{fullname}</h1>
-      <h2>Webpage {process.env.HOST}</h2> */}
-      {/* <LoadingComponent module='LayoutReact@./AppM1' /> */}
-      <MFApp1 />
-      <MFApp2 />
+      <h2>Webpage - 123 {process.env.HOST}</h2>
     </div>
   )
 }
-
-export default App
+//SET UP MCE
+// export default App
+//bọc lại tránh lỗi version react
+export default CreateInitialAutoReact(App);

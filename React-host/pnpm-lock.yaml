@@ -12,8 +12,11 @@ importers:
         specifier: ^0.13.1
         version: 0.13.1(@rspack/core@1.3.8(@swc/helpers@0.5.13))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)(webpack@5.99.7)
       mcfe-provider:
-        specifier: ^1.0.3
-        version: 1.0.3
+        specifier: ^1.4.0
+        version: 1.4.0(webpack@5.99.7)
+      mcfe-react-lib:
+        specifier: ^1.0.1
+        version: 1.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -3210,8 +3213,16 @@ packages:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
     engines: {node: '>= 0.4'}
 
-  mcfe-provider@1.0.3:
-    resolution: {integrity: sha512-o957S7ciCyPSxukcOx2k1u4f/F0yhFz55tbip/U2wB1rpbpD1/LYrdNX1U+FZ7Khp6brNsbfXsDSMHGtmuHvQg==}
+  mcfe-provider@1.4.0:
+    resolution: {integrity: sha512-HRG3VSOQO3rKOngIk/bAJlIcPW6umBVPFimj//tH4nYtMD+ulDOOTin3nUm2Ec7KH0ZsH04fmM+J6go6G8NqHA==}
+    peerDependencies:
+      webpack: ^5.0.0
+
+  mcfe-react-lib@1.0.1:
+    resolution: {integrity: sha512-sMYA4R1G8b8Lp44abhwSP3EMFVJernzHGfncqjV+KVacon00ubpkQfgrDmEnhcHfvPlePfL8BgNCyXtc7kf2EA==}
+    peerDependencies:
+      react: '>=17.0.0'
+      react-dom: '>=17.0.0'
 
   mdn-data@2.0.28:
     resolution: {integrity: sha512-aylIc7Z9y4yzHYAJNuESG3hfhC+0Ibp/MAMiaOZgNv4pmEdFyfZhhhny4MNiAfWdBQ1RQ2mfDWmM1x8SvGyp8g==}
@@ -8155,7 +8166,15 @@ snapshots:
 
   math-intrinsics@1.1.0: {}
 
-  mcfe-provider@1.0.3: {}
+  mcfe-provider@1.4.0(webpack@5.99.7):
+    dependencies:
+      webpack: 5.99.7(webpack-cli@5.1.4)
+
+  mcfe-react-lib@1.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      mcfe-react-lib: 'link:'
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   mdn-data@2.0.28: {}
 

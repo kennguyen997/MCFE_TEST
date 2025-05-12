@@ -5,7 +5,8 @@ module.exports = () => {
     expose: {
       name: 'LayoutReact',
       exposes: {
-        './AppM1': './src/App'
+        './AppM1': './src/App',
+        './AppM2': './src/App2'
       }
     }
   }

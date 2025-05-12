@@ -12,12 +12,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const webpack = require('webpack')
 
 //SET UP MCE
-const { McfeRemoteConfigLoader } = require('mcfe-provider')
-const { ModuleFederationPlugin } = require('webpack').container
-
-const pluginProvider = new McfeRemoteConfigLoader()
-const exposeInfo = pluginProvider.getExpose()
-console.log(exposeInfo.expose)
+const { MCFERemotePlugin } = require('mcfe-provider')
 
 // Cái dòng này giúp Editor gợi ý được các giá trị cho dòng code config ngay phía dưới nó
 // (giống như đang dùng Typescript vậy đó 😉)
@@ -106,16 +101,12 @@ module.exports = (env, argv) => {
     },
     devtool: isProduction ? false : 'source-map',
     plugins: [
-      new webpack.DefinePlugin({
-        'process.env.EXPOSE_MANIFEST': JSON.stringify(exposeInfo.expose)
-      }),
       // Đưa css ra thành một file .css riêng biệt thay vì bỏ vào file .js
       new MiniCssExtractPlugin({
         filename: isProduction ? 'static/css/[name].[contenthash:6].css' : '[name].css'
       }),
       //SET UP MCE
-      new ModuleFederationPlugin({ ...exposeInfo.expose, library: { type: 'var', name: 'LayoutReact' } }),
-      exposeInfo.manifestPlugin,
+      new MCFERemotePlugin(),
       // Dùng biến môi trường env trong dự án
       new Dotenv(),
       // Copy mọi files trong folder public trừ file index.html

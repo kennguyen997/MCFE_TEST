@@ -1,8 +1,7 @@
 import React, { FC, useState } from 'react'
-import reactlogo from './assets/images/react.svg'
 import './assets/styles/app.css'
 import './assets/styles/app.scss'
-import { CreateInitial } from '../react.helper'
+import { CreateInitialAutoReact } from 'mcfe-react-lib'
 export const App: FC = () => {
   const [fullname] = useState('DinoCollab')
   console.log(fullname)
@@ -17,13 +16,13 @@ export const App: FC = () => {
         flexDirection: 'column'
       }}
     >
-      <img src={reactlogo} alt='React Logo' width={100} height={100} />
+      <img src={'./assets/images/react.svg'} alt='React Logo' width={100} height={100} />
       <h1>{fullname}</h1>
-      <h2>Webpage 234234{process.env.HOST}</h2>
+      <h2>Webpage 123{process.env.HOST}</h2>
     </div>
   )
 }
 //SET UP MCE
 // export default App
 //bọc lại tránh lỗi version react
-export default CreateInitial(App);
+export default CreateInitialAutoReact(App);

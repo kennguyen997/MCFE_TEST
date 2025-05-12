@@ -5,7 +5,8 @@
   "license": "MIT",
   "dependencies": {
     "@module-federation/enhanced": "^0.13.1",
-    "mcfe-provider": "^1.0.3",
+    "mcfe-provider": "^1.4.0",
+    "mcfe-react-lib": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
