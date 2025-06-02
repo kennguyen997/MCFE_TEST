@@ -5,13 +5,13 @@
   "license": "MIT",
   "dependencies": {
     "@module-federation/enhanced": "^0.13.1",
-    "mcfe-provider": "^1.4.0",
-    "mcfe-react-lib": "^1.0.1",
+    "mcfe-provider": "^1.4.8",
+    "mcfe-react-lib": "^1.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "scripts": {
-    "dev": "webpack-dev-server --mode development",
+    "dev": "webpack-dev-server --mode development --port 3001",
     "build": "webpack --mode production",
     "build:analyze": "webpack --mode production --env analyze",
     "preview": "serve dist/ -s",

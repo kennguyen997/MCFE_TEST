@@ -16,8 +16,17 @@ export const App: FC = () => {
         flexDirection: 'column'
       }}
     >
-      <img src={'./assets/images/react.svg'} alt='React Logo' width={100} height={100} />
+      {/* <img src={'./assets/images/react.svg'} alt='React Logo' width={100} height={100} /> */}
       <h1>{fullname}</h1>
+      <div>đây là local123</div>
+      <div>đây là local123</div>
+      <div>đây là local123</div>
+      <div>đây là local123</div>
+      <div>đây là local123</div>
+      <div>đây là local123</div>
+      <div>đây là local123</div>
+      <div>đây là local123</div>
+      <div>đây là local123</div>
       <h2>Webpage 123{process.env.HOST}</h2>
     </div>
   )
@@ -25,4 +34,4 @@ export const App: FC = () => {
 //SET UP MCE
 // export default App
 //bọc lại tránh lỗi version react
-export default CreateInitialAutoReact(App);
+export default CreateInitialAutoReact(App)

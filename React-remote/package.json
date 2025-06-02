@@ -10,7 +10,7 @@
     "react-dom": "^18.2.0"
   },
   "scripts": {
-    "dev": "webpack-dev-server --mode development",
+    "dev": "webpack-dev-server --mode development --port 3002",
     "build": "webpack --mode production",
     "build:analyze": "webpack --mode production --env analyze",
     "preview": "serve dist/ -s",

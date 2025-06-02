@@ -1,3 +1,4 @@
-import { CreateComponent } from 'mcfe-react-lib'
-export const MFApp1 = CreateComponent(import('LayoutReact/AppM1'))
-export const MFApp2 = CreateComponent(import('LayoutReact/AppM2'))
+import { CreateComponentSuspense } from 'mcfe-react-lib'
+
+export const AppM1 = CreateComponentSuspense(import('LayoutReact/AppM1'))
+export const AppM2 = CreateComponentSuspense(import('LayoutReact/AppM2'))

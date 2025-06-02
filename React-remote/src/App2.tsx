@@ -25,4 +25,4 @@ export const App: FC = () => {
 //SET UP MCE
 // export default App
 //bọc lại tránh lỗi version react
-export default CreateInitialAutoReact(App);
+export default CreateInitialAutoReact(App)
